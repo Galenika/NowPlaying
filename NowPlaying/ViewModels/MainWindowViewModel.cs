@@ -31,14 +31,14 @@ namespace NowPlaying.ViewModels
         public void Refresh()
         {
             // заглушка
-            // PlayedSeconds++;
+            PlayedSeconds++;
 
-            var trackResp = _spotify.GetCurrentTrack("");
+            // var trackResp = _spotify.GetCurrentTrack("");
 
-            if (trackResp != null && trackResp.Id != this.PlayingTrack.Id)
-            {
+            // if (trackResp != null && trackResp.Id != this.PlayingTrack.Id)
+            // {
 
-            }
+            // }
         }
 
         [Reactive]

@@ -1,13 +1,20 @@
-<Window x:Class="NowPlaying.Views.BrowserWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+<Window
+        x:Class="NowPlaying.Views.BrowserWindow"
+        xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:cef="clr-namespace:Xilium.CefGlue.Avalonia;assembly=Xilium.CefGlue.Avalonia"
-        mc:Ignorable="d" Height="800" Width="550" ShowInTaskbar="True" Title="NowPlaying Authentication" ResizeMode="NoResize">
-    <cef:AvaloniaCefBrowser Name="Browser"
+        xmlns:cef="clr-namespace:CefGlue.Avalonia;assembly=Raising.CefGlue.Avalonia"
+        mc:Ignorable="d" Height="800" Width="550" ShowInTaskbar="True" Title="NowPlaying Authentication">
+
+    <StackPanel>
+        
+        <cef:AvaloniaCefBrowser StartUrl="http://www.bing.com" />
+        
+    </StackPanel>
+    <!-- <cef:AvaloniaCefBrowser Name="Browser"
             HorizontalAlignment="Stretch" VerticalAlignment="Top"
             Height="750"
             LoadingStateChanged="Browser_LoadingStateChanged" 
-            StartUrl="https://accounts.spotify.com/authorize?client_id=7633771350404368ac3e05c9cf73d187&amp;redirect_uri=https://www.google.com/&amp;response_type=code&amp;scope=user-read-playback-state"/>
+            StartUrl="https://accounts.spotify.com/authorize?client_id=7633771350404368ac3e05c9cf73d187&amp;redirect_uri=https://www.google.com/&amp;response_type=code&amp;scope=user-read-playback-state"/> -->
 </Window>
