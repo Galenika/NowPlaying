@@ -1,41 +1,24 @@
-﻿using System.Windows;
-using System;
-using NowPlaying.GameProcessHook;
-using NowPlaying.UI.Windows;
-using NowPlaying.UI;
+﻿using System;
+using Avalonia;
+using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Logging.Serilog;
+using Avalonia.ReactiveUI;
 
 namespace NowPlaying
 {
-    public class Program : Application
+    class Program
     {
-        [STAThread]
-        public static void Main()
-        {
-            SteamIdLooker.UpdateAccountsInfo();
-            InitializeGameProcess();
-            new Application().Run(new MainWindow());
-        }
+        // Initialization code. Don't use any Avalonia, third-party APIs or any
+        // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
+        // yet and stuff might break.
+        public static void Main(string[] args) => BuildAvaloniaApp()
+            .StartWithClassicDesktopLifetime(args);
 
-        public static TrayMenu TrayMenu { get; } = new TrayMenu();
-
-        public static GameProcess GameProcess { get; private set; }
-
-        public Program()
-        {
-            Startup += (sender, args) => InitializeGameProcess();
-            Exit += (sender, args) => Dispose();
-        }
-
-        public static void InitializeGameProcess()
-        {
-            GameProcess = new GameProcess();
-            GameProcess.Start();
-        }
-
-        public static void Dispose()
-        {
-            GameProcess.Dispose();
-            TrayMenu.Dispose();
-        }
+        // Avalonia configuration, don't remove; also used by visual designer.
+        public static AppBuilder BuildAvaloniaApp()
+            => AppBuilder.Configure<App>()
+                .UsePlatformDetect()
+                .LogToDebug()
+                .UseReactiveUI();
     }
 }

@@ -1,0 +1,31 @@
+﻿<ReactiveUserControl
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="110" d:DesignHeight="60"
+             x:Class="NowPlaying.Views.Switch">
+    <ReactiveUserControl.Resources>
+        <SolidColorBrush x:Key="SpotifyGreen">#1DB954</SolidColorBrush>
+        <SolidColorBrush x:Key="Off">#FF4040</SolidColorBrush>
+    </ReactiveUserControl.Resources>
+
+    <ReactiveUserControl.Styles>
+        <Style Selector="Border">
+            <Setter Property="Background" Value="{ DynamicResource SpotifyGreen }" />
+            <Setter Property="CornerRadius" Value="30" />
+            <Setter Property="Padding" Value="7,0" />
+            <Setter Property="Width" Value="110" />
+            <Setter Property="Height" Value="60" />
+        </Style>
+        <Style Selector="Ellipse">
+            <Setter Property="Fill" Value="White" />
+            <Setter Property="Width" Value="46" />
+            <Setter Property="Height" Value="46" />
+        </Style>
+    </ReactiveUserControl.Styles>
+
+    <Border Name="Rect">
+        <Ellipse Name="Ellipse" HorizontalAlignment="Left"/>
+    </Border>
+</ReactiveUserControl>

@@ -6,7 +6,7 @@ using NowPlaying.Api.SpotifyResponses;
 
 namespace NowPlaying.Api
 {
-    internal class SpotifyRequestsManager : RequestsManager
+    public class SpotifyRequestsManager : RequestsManager
     {
         private class SpotifyApiUrls
         {
@@ -16,6 +16,10 @@ namespace NowPlaying.Api
         }
 
         private readonly string _authorization;
+
+        public string AccessToken { get; set; }
+        public string RefreshToken { get; set; }
+        public DateTime TokenExpireTime { get; set; }
 
         public SpotifyRequestsManager(string spotifyClientId, string spotifyClientSecret)
         {
